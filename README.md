@@ -10,11 +10,11 @@
 
 # DESCRIPTION
 
-DHVAdmin (Дохуя виювер Админитстратор) - на создание утилиты был вдохновлен утилитой, под названием DomainHostingView, к сожалению аналогов не оказалось под linux, поэтому был создан данный скрипт, скрипт создан для помоши и быстрой оценки домена его DNS, или вебсервера. утилита по задумке должна помочь технической поддержке хостингов, наиболее полно и быстро оценивать проблемы по вопросам работы, сайтов DNS и хостинга сервера в целом.
+DHVAdmin (Dohua Hosting Viewer Administrator) - the creation of the utility was inspired by a utility called DomainHostingView, unfortunately not available for Linux, so this script was created, the script was created to help and quickly evaluate the domain of its DNS, or web server. usefulness is supposed to help the technical support of hostings, most fully and quickly evaluate problems with work, DNS sites and hosting servers in general.
 
 # INSTALLATION
 
-Для работы утилиты требуются некоторые зависимости, если у вас их нет то установите их через ваш пакетный мененджер.
+The utility requires some dependencies to work, if you do not have them, then install them through your package manager.
 
 wget, curl, whatweb, dig, openssl
 
@@ -48,29 +48,35 @@ chmod +x dhv.sh
 1. Get all DNS records, including PTR, and information about which organization serves which service
 
 ```
-./dhv.sh -d hoster.kz -dns
+./dhv.sh -d oibai.ru -dns
 ```
 
 2. Get all DNS records as well as whois by main ip
 
 ```
-./dhv.sh -d hoster.kz -dns -ip
+./dhv.sh -d oibai.ru -dns -ip
 ```
 
 3. Get all DNS records as well as whois by main ip
 
 ```
-./dhv.sh -d hoster.kz -dns -ip
+./dhv.sh -d oibai.ru -dns -ip
 ```
 
 3. Get just Whois by domain
 
 ```
-./dhv.sh -d hoster.kz -whois
+./dhv.sh -d oibai.ru -whois
 ```
 
 4. Ping all hosts from a file in an infinite loop
 
 ```
 ./dhv.sh -ping ping_host.txt
+```
+
+5. Check all redirects to domain until status 200OK
+
+```
+./dhv.sh -d oibai.ru -redirect
 ```
