@@ -227,7 +227,8 @@ function dns(){
                # if the MX record is caught, we process it
                     mx_record_nuber=$(echo "$data" | awk '{print $1}')
                     mx_domain=$(echo "$data" | cut -d ' ' -f 2-)
-                    printf "| %-6s | %-30s | %-16s | %-5s | %-40s \n" "$record_type" "$mx_domain" "$ip_address" "$ttl"  "Preference: $mx_record_nuber"
+                    mx_ip_adress=$(dig A $mx_domain @$dns_resolver | grep "IN" | grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}')
+                    printf "| %-6s | %-30s | %-16s | %-5s | %-40s \n" "$record_type" "$mx_domain" "$mx_ip_adress" "$ttl"  "Preference: $mx_record_nuber"
                 fi
                 
 
